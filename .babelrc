@@ -1,0 +1,22 @@
+{
+    "presets": [
+        ["next/babel"],
+        ["@babel/preset-env"],
+        ["@emotion/babel-preset-css-prop"]
+    ],
+    "plugins": [
+        ["babel-plugin-module-resolver", {
+                "root": "/",
+                "alias": {
+                    "components": "./components",
+                    "containers": "./containers",
+                    "css": "./css",
+                    "static": "./static",
+                    "utils": "./utils"
+                }
+            }
+        ],
+        ["@babel/plugin-proposal-class-properties"],
+        ["emotion"]
+    ]
+}
