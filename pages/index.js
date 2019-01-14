@@ -4,8 +4,28 @@ import Link from 'next/link'
 import Layout from '../components/Layout'
 import StoriesList from '../components/Stories'
 import Head from 'next/head'
-import { Container, Footer } from 'components/BasicComponents'
+import styled from '@emotion/styled'
+import { Container, Footer, FooterNav } from 'components/BasicComponents'
 
+const A = styled.a`
+    display: inline-block;
+    padding: 6px 16px;
+    border: 2px solid #ff6600;
+    cursor: pointer;
+    border-radius: 4px;
+    color: #FF6600;
+    transition: background-color 0.2s linear;
+
+    &:hover,
+    &:active {
+        background: #FF6600;
+        color: white;
+    }
+
+    &:active {
+        transform: translateY(1px);
+    }
+`
 
 class Index extends React.Component {
     static async getInitialProps({req, res, query}) {
@@ -35,9 +55,11 @@ class Index extends React.Component {
             <Layout title='HackerNews' backButton={false}>
                 <StoriesList stories={stories} />
                 <Footer>
-                    <Link href={`/?page=${page + 1}`}>
-                        <button>Next Page</button>
-                    </Link>
+                    <FooterNav>
+                        <Link href={`/?page=${page + 1}`}>
+                            <A>Next Page</A>
+                        </Link>
+                    </FooterNav>
                 </Footer>
             </Layout>
             </>

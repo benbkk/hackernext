@@ -30,3 +30,7 @@ export const Scroll = styled.div`
 export const Footer = styled.footer`
     padding: 18px 0 36px;
 `
+
+export const FooterNav = styled.nav`
+    padding: 18px 0 36px;
+`

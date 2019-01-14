@@ -36,12 +36,15 @@ export const Styles = css`
         font-family: 'Merriweather', sans-serif;
     }
 
-    h4, h5 {
-        margin-bottom: 0;
+    h2 { 
+        font-size: 2em;
+        @media(max-width: 557px) {
+            font-size: 1.5em;
+        }
     }
 
-    h1.story-title {
-        font-size: ${rem('40px')};
+    h4, h5 {
+        margin-bottom: 0;
     }
 
     a { 
@@ -70,12 +73,6 @@ export const Styles = css`
     #__next {
         height: inherit;
         overflow-y: auto;
-    }
-
-    nav {
-        padding: 18px 0;
-        background-color: #ff6600;
-        height: 60px;
     }
 
     main {

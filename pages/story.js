@@ -8,11 +8,21 @@ import { css, jsx } from '@emotion/core'
 import { rem } from 'polished'
 import moment from 'moment'
 import { getDate } from 'utils'
+import { slugify } from '../utils';
 
 const storyInfo = css`
     display: inline-block;
     font-size: ${rem('16px')};
     margin-right: ${rem('9px')};
+`
+
+const storyTitle = css`
+    font-size: 1.8rem;
+    width: 100%;
+    @media (min-width: 557px) {
+        width: 80%;
+        font-size: 2.5rem;
+    }
 `
 
 class Story extends React.Component {
@@ -28,25 +38,30 @@ class Story extends React.Component {
             story = null
         }
 
-        return { story }
+        return { 
+            story
+        }
     }
 
     state = {
-        comments: []
+        isLoading: false
     }
 
-    componentDidMount() {
+    componentDidMount () {
         const { story } = this.props
-        const comments = story.comments
-        this.setState({
-            comments
-        })
+        if (story) {
+            this.setState({
+                isLoading: true
+            })
+        }
     }
-
 
     render () {
-        const { comments } = this.state
-        const { story } = this.props 
+        console.log(this.props)
+        const { story } = this.props
+        const comments = story && story.comments
+        console.log(comments)
+
 
         if (!story) {
             return <Error statusCode={503} />
@@ -57,7 +72,7 @@ class Story extends React.Component {
                     <title>{story.title} | HackerNext</title>
                 </Head>
                 <Layout backButton={true}>
-                    <h1 className='story-title' style={{maxWidth: '80%'}}>
+                    <h1 className='story-title' css={storyTitle}>
                         <a href={story.url} target='_blank'>{story.title}</a>
                     </h1>
                     <div className='story-details'>
@@ -67,9 +82,11 @@ class Story extends React.Component {
                         
                         
                     </div>
+                        {!story.comments && <p>No Comments</p>}
+                        
                         {story.comments_count <= 0
                         ? <p>No comments yet.</p>
-                        : comments.length === 0
+                        : story.comments.length === 0
                             ? <p>Loading Comments...</p>
                             : <CommentsList comments={comments} />
                         }

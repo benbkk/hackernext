@@ -42,7 +42,10 @@ const StoriesList = ({stories}) => (
         {stories.map(story => (
             <li key={story.id} className='story' css={listItem}>
                 <h2 className='story-title'>
-                    <Link href={`/story?id=${story.id}`}>
+                    <Link 
+                        href={`/story?id=${story.id}`}
+                        as={`/story/${story.id}`}
+                    >
                         <a>{story.title}</a>
                     </Link>
                 </h2>
