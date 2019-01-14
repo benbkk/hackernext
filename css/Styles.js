@@ -13,6 +13,7 @@ export const Styles = css`
     html {
         ${size('100%')};
         font-size: 1rem;
+        min-width: 320px;
     }
 
     body {
@@ -24,6 +25,7 @@ export const Styles = css`
         font-family: 'Quicksand', sans-serif;
         font-size: inherit;
         overflow: hidden;
+        min-width: inherit;
     }
 
     h1, h2, h3, h4, h5 {
@@ -72,7 +74,7 @@ export const Styles = css`
 
     nav {
         padding: 18px 0;
-        background-color: #ff7301;
+        background-color: #ff6600;
         height: 60px;
     }
 

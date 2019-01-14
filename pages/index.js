@@ -20,7 +20,6 @@ class Index extends React.Component {
             console.log(err)
             stories = []
         }
-        console.log('CURRENT PAGE IS ', page, 'STORIES: ', stories)
         return { stories, page }
     }
     render() {

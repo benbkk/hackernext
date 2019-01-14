@@ -51,7 +51,6 @@ class Story extends React.Component {
         if (!story) {
             return <Error statusCode={503} />
         }
-        console.log(story)
         return (
             <>
                 <Head>

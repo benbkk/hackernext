@@ -15,6 +15,11 @@ export const Nav = styled.nav`
     padding: 18px 36px;
     background-color: #ff7301;
     height: 60px;
+    min-width: 320px;
+
+    @media (max-width: 640px) {
+        padding: 18px 27px;
+    }
 `
 
 export const Scroll = styled.div`

@@ -1,0 +1,51 @@
+{
+  "name": "HackerNext",
+  "short_name": "hacker-next",
+  "lang": "en-US",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#FF6600",
+  "background_color": "#F0F",
+  "icons": [
+    {
+      "src": "/static/icons/icon-512",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/icons/icon-384",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/icons/icon-192",
+      "sizes": "193x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/icons/icon-152",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/icons/icon-144",
+      "sizes": "144x144",
+      "type": "image.png"
+    },
+    {
+      "src": "/static/icons/icon-128",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/icons/icon-96",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/icons/icon-72",
+      "sizes": "72x72",
+      "type": "image/png"
+    }
+  ]
+}
