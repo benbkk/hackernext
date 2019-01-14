@@ -1,5 +1,6 @@
 const routes = require('next-routes')
 
 module.exports = routes()
-    .add('home', '/', 'index')
-    .add('story', '/story/:id', 'story')
+    .add('/', 'index')
+    .add('/page/:page', 'index')
+    .add('/story/:id', 'story')

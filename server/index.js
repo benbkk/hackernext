@@ -21,6 +21,12 @@ app.prepare()
             app.render(req, res, actualPage, queryParams)
         })
 
+        server.get('/page/:page', (req, res, query) => {
+            const actualPage = '/'
+            const queryParams = { page: query.page}
+            app.render(req, res, actualPage, queryParams)
+        })
+
         server.listen(3000, err => {
             if(err) throw err
             console.log('> Ready on http://localhost:3000')

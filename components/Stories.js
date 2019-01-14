@@ -51,7 +51,8 @@ const StoriesList = ({stories}) => (
                 </h2>
                 <div className='story-details'>
                     <span css={storyInfo}><b>{story.points ? story.points : 0}</b> points</span>
-                    <Link 
+                    <Link
+                        as={`/story/${story.id}`}
                         href={`/story?id=${story.id}`}
                     >
                         <span css={storyInfo}><b><a css={linkStyle}>{story.comments_count || 0} comments</a></b></span>
