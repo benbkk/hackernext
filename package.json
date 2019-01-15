@@ -7,22 +7,26 @@
   "scripts": {
     "dev": "node ./server",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "start": "NODE_ENV=production node ./server"
   },
   "dependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.6",
     "@emotion/core": "^10.0.6",
     "@emotion/styled": "^10.0.6",
     "express": "^4.16.4",
+    "express-http2": "^4.13.4",
     "html-react-parser": "^0.6.1",
     "isomorphic-unfetch": "^3.0.0",
     "moment": "^2.23.0",
     "next": "^7.0.2",
+    "next-offline": "^3.3.3",
     "next-routes": "^1.4.2",
     "polished": "^2.3.3",
     "prismjs": "^1.15.0",
     "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react-dom": "^16.7.0",
+    "react-lazyload": "^2.3.0",
+    "sw-precache-webpack-plugin": "^0.11.5"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",

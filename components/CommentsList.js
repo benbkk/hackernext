@@ -4,11 +4,10 @@ import Comment from './Comment'
 const CommentsList = ({comments}) => (
     <ul>
         {comments.map(comment => (
-            <Comment
-                key={comment.id}
-                comment={comment}
-            />
-    
+                <Comment
+                    key={comment.id}
+                    comment={comment}
+                />
         ))}
     </ul>
 )

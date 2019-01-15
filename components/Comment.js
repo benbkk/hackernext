@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component, createRef } from 'react'
 import parseContent from 'html-react-parser'
 import { css, jsx } from '@emotion/core'
 import { lighten, rem, transparentize } from 'polished'
+import Prism from 'prismjs'
 
 import parseThis from 'html-react-parser'
 import CommentsList from 'components/CommentsList'
@@ -44,31 +45,41 @@ const userStyle = css`
 `
 
 const commentStyles = css`
-    padding: 2px 18px;
+    padding: 20px;
     font-size: ${rem('16px')};
     margin-bottom: 0;
     margin-top: 9px;
     background: ${lighten(0.40, '#3399cc')};
+    position: relative;
+    z-index: 1;
+    p {
+        margin-top: 0;
+        margin-bottom: 18px;
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
 `
 
 class Comment extends Component {
-    state = {
-        content: null,
-        isLoading: true,
+    constructor(props) {
+        super(props)
+        this.state = {
+            content: null
+        }
     }
 
     componentDidMount() {
         const { comment } = this.props
         const content = comment && parseThis(comment.content)
-
         this.setState({
-            content,
-            isLoading: false,
+            content
         })
     }
 
     render () {
-        const { content, isLoading } = this.state
+        
+        const { content } = this.state
         const { comment } = this.props
         return (
             <>

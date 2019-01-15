@@ -9,17 +9,18 @@ import { Container, Footer, FooterNav } from 'components/BasicComponents'
 
 const A = styled.a`
     display: inline-block;
-    padding: 6px 16px;
+    padding: 8px 16px;
     border: 2px solid #ff6600;
+    background: #ff6600;
     cursor: pointer;
     border-radius: 4px;
-    color: #FF6600;
+    font-size: 14px;
+    text-transform: uppercase;
     transition: background-color 0.2s linear;
 
     &:hover,
     &:active {
         background: #FF6600;
-        color: white;
     }
 
     &:active {

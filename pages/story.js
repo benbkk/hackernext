@@ -57,11 +57,8 @@ class Story extends React.Component {
     }
 
     render () {
-        console.log(this.props)
         const { story } = this.props
         const comments = story && story.comments
-        console.log(comments)
-
 
         if (!story) {
             return <Error statusCode={503} />

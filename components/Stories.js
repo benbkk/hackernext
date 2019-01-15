@@ -34,11 +34,9 @@ const linkStyle = css`
     }
 `
 
-
-
-
-const StoriesList = ({stories}) => (
-        <ul>
+const StoriesList = ({stories}) => {
+    return (
+    <ul>
         {stories.map(story => (
             <li key={story.id} className='story' css={listItem}>
                 <h2 className='story-title'>
@@ -63,5 +61,6 @@ const StoriesList = ({stories}) => (
         ))}
         </ul>
 )
+}
 
  export default StoriesList

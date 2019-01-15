@@ -2,7 +2,6 @@ import { css } from '@emotion/core'
 import { size, position, lighten, rem } from 'polished'
 
 export const Styles = css`
-
     *{
         box-sizing: border-box;
         &:focus {
@@ -28,6 +27,8 @@ export const Styles = css`
         min-width: inherit;
     }
 
+    
+
     h1, h2, h3, h4, h5 {
         margin-top: 1.5em;
         margin-bottom: 0.25em;
@@ -50,7 +51,8 @@ export const Styles = css`
     a { 
         text-decoration: none;
         color: ${lighten(0.2, 'black')};
-        font-weight: 500;
+        font-weight: 700;
+        cursor: pointer;
     }
 
     ul {

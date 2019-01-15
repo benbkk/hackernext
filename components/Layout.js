@@ -18,7 +18,7 @@ const Layout = props => {
                 }
                 <Link href="/">
                     <a>
-                        <span className='main-title' style={{color: 'white'}}>{title}</span>
+                        <span className='main-title' style={{color: 'black'}}>{title}</span>
                     </a>
                 </Link>
             </Nav>
