@@ -7,8 +7,10 @@
   "scripts": {
     "dev": "node ./server",
     "build": "next build",
-    "start": "NODE_ENV=production node ./server"
+    "start": "NODE_ENV=production node ./server",
+    "deploy": "now --public"
   },
+  "author": "Beta Anggoro (Ben)",
   "dependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.6",
     "@emotion/core": "^10.0.6",
