@@ -10,8 +10,9 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <html>
-        <Head>     
+      <html lang="en">
+        <Head>
+          <meta name="description" content="The classic HackerNews aggregation using Server-Side Rendering React with Next.JS" />   
           <meta name="mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="application-name" content="hacker-next" />

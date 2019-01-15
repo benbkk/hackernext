@@ -2,7 +2,6 @@ import React, { Component, createRef } from 'react'
 import parseContent from 'html-react-parser'
 import { css, jsx } from '@emotion/core'
 import { lighten, rem, transparentize } from 'polished'
-import Prism from 'prismjs'
 
 import parseThis from 'html-react-parser'
 import CommentsList from 'components/CommentsList'

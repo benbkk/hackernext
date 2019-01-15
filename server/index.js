@@ -1,5 +1,7 @@
 const next = require('next')
+const compression = require('compression') 
 const express = require('express')
+const spdy = require('spdy');
 const routes = require('./routes')
 
 const app = next({dev: process.env.NODE_ENV !== 'production'})
@@ -10,6 +12,7 @@ const handler = routes.getRequestHandler(app, ({req, res, route, query}) => {
 app.prepare()
     .then(() => {
         const server = express()
+        server.use(compression())
         
         server.get('*', (req, res) => {
             return handler(req, res)
