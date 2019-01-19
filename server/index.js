@@ -3,6 +3,8 @@ const compression = require('compression')
 const express = require('express')
 const spdy = require('spdy');
 const routes = require('./routes')
+const url = require('url')
+const path = require('path')
 
 const app = next({dev: process.env.NODE_ENV !== 'production'})
 const handler = routes.getRequestHandler(app, ({req, res, route, query}) => {
@@ -12,10 +14,22 @@ const handler = routes.getRequestHandler(app, ({req, res, route, query}) => {
 app.prepare()
     .then(() => {
         const server = express()
+        
         server.use(compression())
         
         server.get('*', (req, res) => {
-            return handler(req, res)
+            if (req) {
+                const parsedUrl = url.parse(req.url, true)
+                const { pathname } = parsedUrl
+                
+                if (pathname === '/service-worker.js') {
+                    const filePath = path.resolve('.next')
+                    res.sendFile('service-worker.js', {root: filePath})
+                }
+                else {
+                    return handler(req, res)
+                }
+            }
         })
 
         server.get('/story/:id', (req, res, query) => {

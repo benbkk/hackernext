@@ -15,10 +15,11 @@ const A = styled.a`
     background: #ff6600;
     cursor: pointer;
     border-radius: 6px;
-    font-size: 16px;
-    text-transform: uppercase;
+    font-size: 14px;
+    font-family: 'Merriweather', serif;
     opacity: 0.9;
     transition: opacity 0.2s linear;
+
 
     &:hover,
     &:active {
@@ -45,9 +46,23 @@ class Index extends React.Component {
         }
         return { stories, page }
     }
+
+    componentDidMount () {
+        if('serviceWorker' in navigator) {
+            navigator.serviceWorker
+                .register('/service-worker.js')
+                .then(registration => {
+                    console.log('Service Worker Registration Successful', registration)
+                })
+                .catch(err => {
+                    console.warn('Service Worker Registration Failed', err.message)
+                })
+        }
+    }
+
     render() {
         const { stories, page } = this.props
-        if (stories.length === 0) {
+        if (!stories || stories && stories.length === 0) {
             return <Error statusCode={503} />
         }
         return (
@@ -61,14 +76,13 @@ class Index extends React.Component {
                     <FooterNav>
                         <Link
                             as={`/page/${page+1}`}
-                            href={`/?page=${page + 1}`}>
+                            href={`/?page=${page+1}`}>
                             <A>Next Page</A>
                         </Link>
                     </FooterNav>
                 </Footer>
             </Layout>
-            </>
-
+        </>
         )
     }
 }
