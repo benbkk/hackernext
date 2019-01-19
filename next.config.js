@@ -4,12 +4,13 @@ module.exports = {
     webpack: config => {
         config.plugins.push(
             new SWPrecacheWebpackPlugin({
+                cacheId: 'hackernext',
                 minify: true,
-                staticFileGlobsIgnorePatterns: [/\.next\//],
+                staticFileGlobsIgnorePatterns: [/\.next\//, /manifest\.json$/],
                 runtimeCaching: [
                     {
                         handler: 'networkFirst',
-                        urlPattern: /^https?.*/
+                        urlPattern: /^http?s.*/
                     }
                 ]
             })

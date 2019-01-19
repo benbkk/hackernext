@@ -12,6 +12,8 @@ const Back = css`
     &:focus {
         outline: none;
     }
+    -webkit-appearance: none;
+    -moz-appearance: none;
 
     &:active {
         transform: translateY(1px);

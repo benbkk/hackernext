@@ -74,7 +74,8 @@ export const Styles = css`
 
     #__next {
         height: inherit;
-        overflow-y: auto;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
     }
 
     main {
