@@ -8,6 +8,7 @@ const Back = css`
     box-shadow: none;
     border: 1px solid #f4f4f4;
     border-radius: 4px;
+    padding: 6px 12px;
     &:active,
     &:focus {
         outline: none;
@@ -17,6 +18,25 @@ const Back = css`
 
     &:active {
         transform: translateY(1px);
+    }
+
+    &:before {
+        content: '';
+        display: block;
+        transform: translateX(-2px);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 6px 8px 6px 0;
+        border-color: transparent #000000 transparent transparent;
+    }
+
+    .sr-only {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        position: absolute;
     }
 ` 
 
@@ -32,7 +52,7 @@ const Layout = props => {
                         className='back-button' 
                         onClick={() => Router.back()}
                     >
-                        &#x2b05;
+                        <span className='sr-only'>Back to Previous Page</span>
                     </button>
                 }
                 <Link href="/">
