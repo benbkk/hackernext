@@ -1,7 +1,10 @@
 {
     "version": 2,
     "name": "hackernext",
-    "builds": [
-        { "src": "package.json", "use": "@now/next" }
-    ]
+    "builds": [{ 
+        "src": "www/package.json", "use": "@now/next" 
+    }],
+    "routes": [{
+        "src": "www/(.*)", "dest": "www/$1"
+    }]
 }
