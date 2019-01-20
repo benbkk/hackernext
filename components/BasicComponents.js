@@ -11,8 +11,8 @@ export const Container = styled.div`
     }
 
     @supports(padding: max(0px))  {
-        padding-left: max(12px, env(safe-area-inset-left));
-        padding-right: max(12px, env(safe-area-inset-right));
+        padding-left: max(27px, env(safe-area-inset-left));
+        padding-right: max(27px, env(safe-area-inset-right));
     }
 }
 `
