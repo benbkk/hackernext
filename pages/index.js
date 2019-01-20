@@ -3,11 +3,12 @@ import Error from 'next/error'
 import Link from 'next/link'
 import Layout from '../components/Layout'
 import StoriesList from '../components/Stories'
+import Router from 'next/router'
 import Head from 'next/head'
 import styled from '@emotion/styled'
 import { Container, Footer, FooterNav } from 'components/BasicComponents'
 
-const A = styled.a`
+const Button = styled.button`
     display: inline-block;
     padding: 8px 16px;
     border: 1px solid #ff6600;
@@ -48,6 +49,7 @@ class Index extends React.Component {
     }
 
     componentDidMount () {
+        if (!'serviceWorker' in navigator) return
         if('serviceWorker' in navigator) {
             navigator.serviceWorker
                 .register('/service-worker.js')
@@ -60,8 +62,13 @@ class Index extends React.Component {
         }
     }
 
+    handleNextPage = () => {
+        const { page } = this.props
+        Router.push(`/?page=${page+1}`, `/page/${page+1}`)
+    }
+
     render() {
-        const { stories, page } = this.props
+        const { stories } = this.props
         if (!stories || stories && stories.length === 0) {
             return <Error statusCode={503} />
         }
@@ -74,11 +81,7 @@ class Index extends React.Component {
                 <StoriesList stories={stories} />
                 <Footer>
                     <FooterNav>
-                        <Link
-                            as={`/page/${page+1}`}
-                            href={`/?page=${page+1}`}>
-                            <A>Next Page</A>
-                        </Link>
+                        <Button onClick={this.handleNextPage}>Next</Button>
                     </FooterNav>
                 </Footer>
             </Layout>

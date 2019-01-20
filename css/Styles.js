@@ -78,6 +78,11 @@ export const Styles = css`
         -webkit-overflow-scrolling: touch;
     }
 
+    button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+
     main {
         height: calc(100vh - 60px);
         overflow:hidden;

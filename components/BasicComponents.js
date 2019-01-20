@@ -9,6 +9,12 @@ export const Container = styled.div`
     @media (max-width: 640px) {
         padding: 1px 27px;
     }
+
+    @supports(padding: max(0px))  {
+        padding-left: max(12px, env(safe-area-inset-left));
+        padding-right: max(12px, env(safe-area-inset-right));
+    }
+}
 `
 
 export const Nav = styled.nav`

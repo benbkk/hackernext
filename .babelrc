@@ -12,7 +12,8 @@
                     "containers": "./containers",
                     "css": "./css",
                     "static": "./static",
-                    "utils": "./utils"
+                    "utils": "./utils",
+                    "context": "./context"
                 }
             }
         ],
