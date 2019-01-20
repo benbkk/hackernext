@@ -2,6 +2,6 @@
     "version": 2,
     "name": "hackernext",
     "builds": [
-        { "src": "./package.json", "use": "@now/next" }
+        { "src": "package.json", "use": "@now/next" }
     ]
 }
