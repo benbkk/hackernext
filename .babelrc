@@ -1,23 +1,20 @@
 {
     "presets": [
         ["next/babel"],
-        ["@babel/preset-env"],
         ["@emotion/babel-preset-css-prop"]
     ],
     "plugins": [
+        ["emotion"],
         ["babel-plugin-module-resolver", {
-                "root": "/",
-                "alias": {
-                    "components": "./components",
-                    "containers": "./containers",
-                    "css": "./css",
-                    "static": "./static",
-                    "utils": "./utils",
-                    "context": "./context"
-                }
+            "root": "/",
+            "alias": {
+                "components": "./components",
+                "containers": "./containers",
+                "css": "./css",
+                "static": "./static",
+                "utils": "./utils",
+                "context": "./context"
             }
-        ],
-        ["@babel/plugin-proposal-class-properties"],
-        ["emotion"]
+        }]
     ]
 }

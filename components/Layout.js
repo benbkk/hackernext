@@ -54,7 +54,7 @@ const Back = css`
 
 
 const Layout = props => {
-    const { children, title, backButton, description } = props
+    const { children, title, backButton, description, scrollRef } = props
     return (
         <>
             <Nav>
@@ -73,12 +73,10 @@ const Layout = props => {
                     </a>
                 </Link>
             </Nav>
-            <main>
-                <Scroll>
-                    <Container>
-                        {children}
-                    </Container>
-                </Scroll>
+            <main ref={scrollRef}>
+               <Container>
+                    {children}
+                </Container>
             </main>
         </>
     )

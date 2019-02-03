@@ -1,3 +1,4 @@
+import { createRef } from 'react'
 import fetch from 'isomorphic-unfetch'
 import Error from 'next/error'
 import Link from 'next/link'
@@ -32,6 +33,10 @@ const Button = styled.button`
 `
 
 class Index extends React.Component {
+    constructor (props) {
+        super(props)
+        this.scrollEl = createRef()
+    }
     static async getInitialProps({req, res, query}) {
         let stories
         let slug
@@ -50,9 +55,9 @@ class Index extends React.Component {
             return {
                 ...story,
                 slug: story.title.toLowerCase()
-                        .split(' ')
-                        .filter((title, i) => i <= 4 ? title : null)
-                        .join('-')
+                    .split(' ')
+                    .filter((title, i) => i <= 4 ? title : null)
+                    .join('-')
             }
         })
 
@@ -79,6 +84,8 @@ class Index extends React.Component {
     handleNextPage = () => {
         const { page } = this.props
         Router.push(`/?page=${page+1}`, `/page/${page+1}`)
+        const scrollEl = this.scrollEl.current
+        scrollEl.scrollTo(0, 0)
     }
 
     render() {
@@ -91,8 +98,8 @@ class Index extends React.Component {
             <Head>
                 <title>HackerNext | The HackerNews on Next</title>
             </Head>
-            <Layout title='HackerNews' backButton={false}>
-                <StoriesList stories={stories} />
+            <Layout title='HackerNews' backButton={false} scrollRef={this.scrollEl}>
+                <StoriesList stories={stories}  />
                 <Footer>
                     <FooterNav>
                         <Button onClick={this.handleNextPage}>Next</Button>

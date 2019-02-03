@@ -85,7 +85,7 @@ export const Styles = css`
 
     main {
         height: calc(100vh - 60px);
-        overflow:hidden;
+        overflow:auto;
     }
 
     .main-title {
