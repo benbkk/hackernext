@@ -21,7 +21,6 @@ const Button = styled.button`
     opacity: 0.9;
     transition: opacity 0.2s linear;
 
-
     &:hover,
     &:active {
         opacity: 1;
