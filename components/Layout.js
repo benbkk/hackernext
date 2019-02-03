@@ -3,12 +3,20 @@ import Router from 'next/router'
 import { Container, Nav, Scroll } from './BasicComponents'
 import {css} from '@emotion/core'
 
+const alignMiddle = css`
+    display: inline-flex;
+    align-items: center;
+`
+
 const Back = css`
+    ${alignMiddle};
     background: white;
     box-shadow: none;
     border: 1px solid #f4f4f4;
     border-radius: 4px;
     padding: 6px 12px;
+    display: inline-flex;
+    align-self: center;
     &:active,
     &:focus {
         outline: none;
@@ -37,6 +45,10 @@ const Back = css`
         height: 0;
         overflow: hidden;
         position: absolute;
+    }
+
+    & + a {
+        ${alignMiddle};
     }
 ` 
 

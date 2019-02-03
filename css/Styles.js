@@ -110,7 +110,6 @@ export const Styles = css`
         font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
         font-size: ${rem('14px')};
         text-align: left;
-        white-space: pre;
         word-spacing: normal;
         word-break: normal;
         word-wrap: normal;
@@ -133,6 +132,10 @@ export const Styles = css`
 
     pre {
         background: #272822;
+        width: 100%;
+        overflow: auto;
+        padding: 18px;
+        white-space: pre;
     }
 `
 

@@ -11,7 +11,7 @@ const listStyle = css`
 
     code {
         display: contents;
-        white-space: pre-line;
+        white-space: pre;
     }
 
     &.level-0 {

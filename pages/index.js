@@ -34,6 +34,7 @@ const Button = styled.button`
 class Index extends React.Component {
     static async getInitialProps({req, res, query}) {
         let stories
+        let slug
         let page
         try {
             page = Number(query.page) || 1
@@ -44,7 +45,21 @@ class Index extends React.Component {
             console.log(err)
             stories = []
         }
-        return { stories, page }
+
+        stories = stories && stories.map((story, i) => {
+            return {
+                ...story,
+                slug: story.title.toLowerCase()
+                        .split(' ')
+                        .filter((title, i) => i <= 4 ? title : null)
+                        .join('-')
+            }
+        })
+
+        return {
+            stories,
+            page
+        }
     }
 
     componentDidMount () {

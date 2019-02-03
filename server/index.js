@@ -38,10 +38,8 @@ app.prepare()
             app.render(req, res, actualPage, queryParams)
         })
 
-        server.get('/page/:page', (req, res, query) => {
-            const actualPage = '/'
-            const queryParams = { page: query.page}
-            app.render(req, res, actualPage, queryParams)
+        server.get('/*', (req, res) => {
+            return handler(req, res)
         })
 
         server.listen(3000, err => {

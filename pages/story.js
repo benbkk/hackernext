@@ -30,12 +30,18 @@ class Story extends React.Component {
         let story
         try {
             const storyId = query.id
-
-            const response = await fetch(`https://node-hnapi.herokuapp.com/item/${storyId}`)
-            story = await response.json()
+            let response
+            try {
+                response = await fetch(`https://node-hnapi.herokuapp.com/item/${storyId}`)
+                story = await response.json()
+            } catch {
+                res.writeHead(302, {
+                    Location: '/'
+                })
+                res.end()
+            }
         } catch (err) {
             console.log(err)
-            story = null
         }
 
         return { 
