@@ -83,9 +83,12 @@ class Index extends React.Component {
 
     handleNextPage = () => {
         const { page } = this.props
-        Router.push(`/?page=${page+1}`, `/page/${page+1}`)
         const scrollEl = this.scrollEl.current
-        scrollEl.scrollTo(0, 0)
+        Router.push(`/?page=${page+1}`, `/page/${page+1}`)
+        
+        setTimeout(() => {
+            scrollEl.scrollTo(0, 0)
+        }, 500)
     }
 
     render() {
